@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JavaScript Assignment</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: #e5e7eb;
+    padding: 20px;
+  }
+  section {
+    background: #111827;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  h2 {
+    color: #38bdf8;
+  }
+  button {
+    padding: 8px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .inc { background: #22c55e; }
+  .dec { background: #ef4444; }
+  .res { background: #eab308; }
+  #count {
+    font-size: 24px;
+    margin-top: 10px;
+  }
+  pre {
+    background: #020617;
+    padding: 10px;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+</style>
+</head>
+<body>
+
+<h1>JavaScript Assignment</h1>
+
+<!-- TASK 1: LOOP -->
+<section>
+  <h2>Task 1: Loop</h2>
+  <pre id="task1"></pre>
+</section>
+
+<!-- TASK 2: ARRAY -->
+<section>
+  <h2>Task 2: Array</h2>
+  <pre id="task2"></pre>
+</section>
+
+<!-- TASK 3: OBJECT -->
+<section>
+  <h2>Task 3: Object</h2>
+  <pre id="task3"></pre>
+</section>
+
+<!-- TASK 4: COUNTER -->
+<section>
+  <h2>Task 4: Counter</h2>
+  <button class="inc" onclick="increment()">Increment</button>
+  <button class="dec" onclick="decrement()">Decrement</button>
+  <button class="res" onclick="reset()">Reset</button>
+  <div id="count">Count: 0</div>
+</section>
+
+<!-- TASK 5: EXCEPTION HANDLING -->
+<section>
+  <h2>Task 5: Exception Handling</h2>
+  <pre id="task5"></pre>
+</section>
+
+<script>
+// Task 1: Loop - Print numbers 1 to 100 and even numbers
+let output1 = "Numbers 1 to 100:\n";
+for (let i = 1; i <= 100; i++) {
+  output1 += i + " ";
+}
+output1 += "\n\nEven Numbers:\n";
+for (let i = 2; i <= 100; i += 2) {
+  output1 += i + " ";
+}
+document.getElementById("task1").textContent = output1;
+
+// Task 2: Array - Find max, min, sum
+let numbers = [10, 25, 5, 40, 15];
+let max = Math.max(...numbers);
+let min = Math.min(...numbers);
+let sum = numbers.reduce((a, b) => a + b, 0);
+
+document.getElementById("task2").textContent =
+`Array: ${numbers}
+Maximum: ${max}
+Minimum: ${min}
+Sum: ${sum}`;
+
+// Task 3: Object - Student details
+let student = {
+  name: "Ali",
+  age: 16,
+  marks: 88
+};
+
+function printStudentDetails(obj) {
+  return `Name: ${obj.name}\nAge: ${obj.age}\nMarks: ${obj.marks}`;
+}
+
+document.getElementById("task3").textContent = printStudentDetails(student);
+
+// Task 4: Counter - Increment, Decrement, Reset
+let count = 0;
+
+function increment() {
+  count++;
+  document.getElementById("count").textContent = "Count: " + count;
+}
+
+function decrement() {
+  count--;
+  document.getElementById("count").textContent = "Count: " + count;
+}
+
+function reset() {
+  count = 0;
+  document.getElementById("count").textContent = "Count: " + count;
+}
+
+// Task 5: Exception Handling - Check age
+function checkAge(age) {
+  if (age < 18) {
+    throw new Error("Age must be 18 or above");
+  }
+  return "Access granted";
+}
+
+try {
+  let result = checkAge(16);
+  document.getElementById("task5").textContent = result;
+} catch (error) {
+  document.getElementById("task5").textContent = error.message;
+}
+</script>
+
+</body>
+</html>
